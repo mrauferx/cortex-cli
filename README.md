@@ -4,7 +4,7 @@
 * Clone this repository.
 * Add the Dockerfile of the image that needs to be built and scanned.
 * Create a basic Github Actions workflow. (already created in this repository, the comments added in the blank.yml file explain the structure of the file)
-* Add the required steps in the blank.yml file in order to orchestrate GitHub Actions workflow:
+* Add the required steps in the **.github/workflows/blank.yml** file in order to orchestrate GitHub Actions workflow:
   * **actions/checkout@v4** step checks out the repository under $GITHUB_WORKSPACE, so the job can access it.
   * Build the Docker image using the Dockerfile
   * Download [Cortex CLI dependencies](https://docs-cortex.paloaltonetworks.com/r/Cortex-Cloud-Posture-Management/Code-Security/Connect-Cortex-CLI) based on the OS of the machine (The current job **runs-on** `ubuntu:latest`)
