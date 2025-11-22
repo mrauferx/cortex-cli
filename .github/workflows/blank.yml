@@ -63,12 +63,7 @@ jobs:
           
           # Make the downloaded file executable
           chmod +x $crtx_file
-         
-         
-        # crtx_resp=$(curl -s "$CORTEX_URL/public_api/v1/unified-cli/releases/download-link?os=linux&architecture=amd64" -H "x-xdr-auth-id: $API_ID" -H "Authorization: $API_KEY") && crtx_url=$(echo $crtx_resp | jq -r ".signed_url") && crtx_file=$(echo $crtx_resp | jq -r ".file_name") && curl -o $crtx_file $crtx_url
 
-
-        
       - name: Cortex CLI execution
         env:
           CORTEX_URL: ${{ secrets.CORTEX_URL }}
