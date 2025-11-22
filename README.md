@@ -16,3 +16,7 @@
 Once the above steps are completed, the output under the Actions tab for the **Cortex CLI execution** to find the results of the scan displayed as a table.
 
 <img width="914" height="256" alt="Screenshot 2025-11-22 at 12 12 55 AM" src="https://github.com/user-attachments/assets/2d72242a-f53f-4640-9d2f-fe5468f2b18d" />
+
+
+
+The same setup can be used for [Cortex CLI SBOM](https://docs-cortex.paloaltonetworks.com/r/Cortex-CLOUD/Cortex-Cloud-Runtime-Security-Documentation/Cortex-CLI-for-Cloud-Workload-Protection) scan too with slight modification/updating the deployment YAML file. (blank.yml)
