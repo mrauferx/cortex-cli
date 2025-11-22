@@ -33,6 +33,11 @@ jobs:
         run: docker build -t ubuntu:18.04 . # Build the image, tagging it 'ubuntu:18.04'
 
       - name: Cortex CLI install
+        env:
+        # These names must match what you use in the script above
+          CORTEX_URL: ${{ secrets.CORTEX_URL }}
+          API_ID: ${{ secrets.API_ID }}
+          API_KEY: ${{ secrets.API_KEY }}
         run: |
           crtx_resp=$(curl -s "$CORTEX_URL/public_api/v1/unified-cli/releases/download-link?os=linux&architecture=amd64" \
             -H "x-xdr-auth-id: $API_ID" \
