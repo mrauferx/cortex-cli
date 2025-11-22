@@ -20,12 +20,18 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    #Adding env. varibales globally to retrieve Secrets from Github, and set image name
+    env:
+      CORTEX_URL: ${{ secrets.CORTEX_URL }}
+      API_ID: ${{ secrets.API_ID }}
+      API_KEY: ${{ secrets.API_KEY }}
+      IMAGE_NAME = "ubuntu:18.04"
+
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks out the repository under $GITHUB_WORKSPACE, so the job can access it
       - uses: actions/checkout@v4
-
-      IMAGE_NAME = "ubuntu:18.04"
 
       - name: Build Docker image
         run: docker build -t $IMAGE_NAME . # Build the image, tagging it 'ubuntu:18.04'
@@ -36,10 +42,6 @@ jobs:
           sudo apt-get install jq
 
       - name: Cortex CLI install
-        env:
-          CORTEX_URL: ${{ secrets.CORTEX_URL }}
-          API_ID: ${{ secrets.API_ID }}
-          API_KEY: ${{ secrets.API_KEY }}
         run: |
           crtx_resp=$(curl -s "$CORTEX_URL/public_api/v1/unified-cli/releases/download-link?os=linux&architecture=amd64" \
             -H "x-xdr-auth-id: $API_ID" \
@@ -63,10 +65,6 @@ jobs:
           chmod +x $crtx_file
 
       - name: Cortex CLI execution
-        env:
-          CORTEX_URL: ${{ secrets.CORTEX_URL }}
-          API_ID: ${{ secrets.API_ID }}
-          API_KEY: ${{ secrets.API_KEY }}
         run: |
           sudo ./cortexcli  --api-base-url $CORTEX_URL --api-key $API_KEY --api-key-id $API_ID image scan $IMAGE_NAME
 
