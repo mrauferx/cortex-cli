@@ -32,6 +32,11 @@ jobs:
       - name: Build Docker image
         run: docker build -t ubuntu:18.04 . # Build the image, tagging it 'ubuntu:18.04'
 
+      - name: Download Cortex dependencies
+        run: |
+          sudo apt install libhyperscan5
+          sudo apt-get install jq
+
       - name: Cortex CLI install
         env:
           CORTEX_URL: ${{ secrets.CORTEX_URL }}
