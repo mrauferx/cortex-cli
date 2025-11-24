@@ -26,5 +26,10 @@ Once the above steps are completed, the output under the Actions tab for the **C
 
 <img width="1048" height="352" alt="Screenshot 2025-11-24 at 3 21 56 PM" src="https://github.com/user-attachments/assets/b83d54fd-80d0-4025-9f36-90f139294ae0" />
 
+The results can be found under All Assets > Container Images (filter by image name or image id):
+
+<img width="897" height="447" alt="Screenshot 2025-11-24 at 4 23 29 PM" src="https://github.com/user-attachments/assets/831ac189-e5ed-4a5f-bcc6-e35d2485ce5c" />
+
+
 
 The same setup can be used for [Cortex CLI SBOM](https://docs-cortex.paloaltonetworks.com/r/Cortex-CLOUD/Cortex-Cloud-Runtime-Security-Documentation/Cortex-CLI-for-Cloud-Workload-Protection) scan too with slight modification/updating the deployment YAML file. (blank.yml)
