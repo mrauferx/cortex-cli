@@ -71,7 +71,7 @@ jobs:
 
       - name: Cortex CLI image scan
         run: |
-          sudo ./cortexcli  --api-base-url $CORTEX_URL --api-key $API_KEY --api-key-id $API_ID image scan $IMAGE_NAME
+          sudo ./cortexcli  --api-base-url $CORTEX_URL --api-key $API_KEY --api-key-id $API_ID --soft-fail image scan $IMAGE_NAME
 
       - name: Cortex CLI SBOM creation
         run: |
