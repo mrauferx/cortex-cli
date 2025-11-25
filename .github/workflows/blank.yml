@@ -76,11 +76,12 @@ jobs:
 
       - name: Cortex CLI SBOM creation
         run: |
-          sudo ./cortexcli  --api-base-url $CORTEX_URL --api-key $API_KEY --api-key-id $API_ID image sbom --output-file ./$IMAGE_NAME-sbom.json $IMAGE_NAME
+          sudo ./cortexcli  --api-base-url $CORTEX_URL --api-key $API_KEY --api-key-id $API_ID image sbom --output-file /tmp/"$IMAGE_NAME-sbom.json" $IMAGE_NAME
+          ls -la
 
       - name: Archive Scan Results
         uses: actions/upload-artifact@v4
         with:
           name: image-scan-report
-          path: ./$IMAGE_NAME-sbom.json
+          path: /tmp/$IMAGE_NAME-sbom.json
           retention-days: 10             # 90 is the default
