@@ -76,8 +76,8 @@ jobs:
 
       - name: Cortex CLI SBOM creation
         run: |
-          sudo ./cortexcli  --api-base-url $CORTEX_URL --api-key $API_KEY --api-key-id $API_ID image sbom --output-file /tmp/"$IMAGE_NAME-sbom.json" $IMAGE_NAME
-          ls -la
+          sudo ./cortexcli  --api-base-url $CORTEX_URL --api-key $API_KEY --api-key-id $API_ID image sbom --output-file '/tmp/$IMAGE_NAME-sbom.json' $IMAGE_NAME
+          ls -la /tmp
 
       - name: Archive Scan Results
         uses: actions/upload-artifact@v4
