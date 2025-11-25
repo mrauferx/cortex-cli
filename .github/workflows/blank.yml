@@ -68,6 +68,7 @@ jobs:
           
           # Make the downloaded file executable
           chmod +x $crtx_file
+          ./cortexcli --version
 
       - name: Cortex CLI image scan
         run: |
